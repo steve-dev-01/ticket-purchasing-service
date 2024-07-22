@@ -1,0 +1,38 @@
+# Use the official Node.js image with Alpine as the base image
+FROM node:18-alpine
+
+# Install necessary dependencies
+RUN apk add --no-cache curl
+
+# Create and change to the app directory
+WORKDIR /usr/src/app
+
+# Copy package.json and package-lock.json
+COPY package*.json ./
+
+# Install dependencies
+RUN npm install
+
+# Copy Prisma schema and generate Prisma client
+COPY prisma ./prisma
+
+# Install prisma CLI and generate Prisma client
+RUN npx prisma generate
+
+# Run prisma client
+RUN npm install prisma client
+
+# Copy the rest of your application code
+COPY . .
+
+# Copy env .example and create .env
+COPY .env.example .env
+
+# Build the NestJS application
+RUN npm run build
+
+# Expose the application port
+EXPOSE 3000
+
+# Command to run migrations, build the application, and start the application
+CMD ["sh", "-c", "npx prisma db push && npm run build && npm run start:dev"]
