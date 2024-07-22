@@ -24,7 +24,7 @@ docker-compose up --build
 
 6. The ticket-purchase-service will now be accessible at `http://localhost:3000`.
 
-## NPM Install
+## Dependencies Installation
 
 To install using npm, follow these steps:
 
@@ -36,13 +36,22 @@ To install using npm, follow these steps:
 npm install
 ```
 
-4. Once the dependencies are installed, you can start the ticket-purchase-service by running the following command:
+4. Install Prisma
+
+```
+npm install prisma client
+npx prisma generate
+npx prisma db push
+
+```
+
+5. Once the dependencies are installed, you can start the ticket-purchase-service by running the following command:
 
 ```
 npm run start:dev
 ```
 
-5. The ticket-purchase-service will now be accessible at `http://localhost:3000`.
+6. The ticket-purchase-service will now be accessible at `http://localhost:3000`.
 
 ## Unit Testing
 
@@ -59,5 +68,7 @@ npm run test
 4. The unit tests will now be executed, and you will see the test results in the console.
 
 ## API Documentation
+
+https://documenter.getpostman.com/view/6273826/2sA3kUH3Dd
 
 ## Sample db file in the repository
