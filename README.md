@@ -61,7 +61,7 @@ To run unit tests for the ticket-purchase-service, follow these steps:
 2. Navigate to the root directory of the project.
 3. Run the following command to execute the unit tests:
 
-** some unit tests are required to run the server **
+** some unit tests are required to run the application **
 
 ```
 npm run test
