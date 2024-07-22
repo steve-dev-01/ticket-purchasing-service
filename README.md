@@ -26,6 +26,9 @@ docker-compose up --build
 
 ## Dependencies Installation
 
+Before you can install
+please make sure you have postgresql installed.
+
 To install using npm, follow these steps:
 
 1. Clone the repository to your local machine.
